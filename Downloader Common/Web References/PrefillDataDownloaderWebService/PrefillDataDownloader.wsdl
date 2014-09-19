@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost/DigitalPen/PrefillDataDownloaderService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://localhost/DigitalPen/PrefillDataDownloaderService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/DigitalPen/PrefillDataDownloaderService">
+      <s:element name="GetManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="manifestNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetManifestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetManifestResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetManifestDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="manifestNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetManifestDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetManifestDownloadedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXfdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="formInstanceId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetXfdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetXfdfResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="formId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPdfResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetManifestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetManifest" />
+  </wsdl:message>
+  <wsdl:message name="GetManifestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetManifestDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetManifestDownloaded" />
+  </wsdl:message>
+  <wsdl:message name="SetManifestDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetManifestDownloadedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetXfdfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetXfdf" />
+  </wsdl:message>
+  <wsdl:message name="GetXfdfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetXfdfResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPdf" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPdfResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PrefillDataDownloaderSoap">
+    <wsdl:operation name="GetManifest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method downloads manifest of prefilled form information. Specify manifestNumber as 0 for latest manifest.</documentation>
+      <wsdl:input message="tns:GetManifestSoapIn" />
+      <wsdl:output message="tns:GetManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetManifestDownloaded">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method notifies the server that the specified manifest has been downloaded successfully.</documentation>
+      <wsdl:input message="tns:SetManifestDownloadedSoapIn" />
+      <wsdl:output message="tns:SetManifestDownloadedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetXfdf">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method returns the specified Xfdf file.</documentation>
+      <wsdl:input message="tns:GetXfdfSoapIn" />
+      <wsdl:output message="tns:GetXfdfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdf">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method returns the specified Pdf file.</documentation>
+      <wsdl:input message="tns:GetPdfSoapIn" />
+      <wsdl:output message="tns:GetPdfSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PrefillDataDownloaderSoap" type="tns:PrefillDataDownloaderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetManifest">
+      <soap:operation soapAction="http://localhost/DigitalPen/PrefillDataDownloaderService/GetManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetManifestDownloaded">
+      <soap:operation soapAction="http://localhost/DigitalPen/PrefillDataDownloaderService/SetManifestDownloaded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetXfdf">
+      <soap:operation soapAction="http://localhost/DigitalPen/PrefillDataDownloaderService/GetXfdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdf">
+      <soap:operation soapAction="http://localhost/DigitalPen/PrefillDataDownloaderService/GetPdf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PrefillDataDownloader">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="PrefillDataDownloaderSoap" binding="tns:PrefillDataDownloaderSoap">
+      <soap:address location="http://localhost/DigitalPen/PrefillDataDownloaderService/PrefillDataDownloader.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

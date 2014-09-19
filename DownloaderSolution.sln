@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Downloader Common", "Downloader Common\Downloader Common.csproj", "{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meticulus Downloader Service", "Downloader Service\Meticulus Downloader Service.csproj", "{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MLDownloader", "MLDownloader\MLDownloader.csproj", "{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|x64.ActiveCfg = Debug|x64
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|x64.Build.0 = Debug|x64
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|x86.ActiveCfg = Debug|x86
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Debug|x86.Build.0 = Debug|x86
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|x64.ActiveCfg = Release|x64
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|x64.Build.0 = Release|x64
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|x86.ActiveCfg = Release|x86
+		{B9D119E8-BC1E-4498-AE5A-A83DC068E95E}.Release|x86.Build.0 = Release|x86
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|x64.ActiveCfg = Debug|x64
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|x64.Build.0 = Debug|x64
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|x86.ActiveCfg = Debug|x86
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Debug|x86.Build.0 = Debug|x86
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|x64.ActiveCfg = Release|x64
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|x64.Build.0 = Release|x64
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|x86.ActiveCfg = Release|x86
+		{AF1D3C92-1BDF-4879-92B8-3FD6F233BD05}.Release|x86.Build.0 = Release|x86
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|x64.ActiveCfg = Debug|x64
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|x64.Build.0 = Debug|x64
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|x86.ActiveCfg = Debug|x86
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Debug|x86.Build.0 = Debug|x86
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|x64.ActiveCfg = Release|x64
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|x64.Build.0 = Release|x64
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|x86.ActiveCfg = Release|x86
+		{1CE96FB5-3BC3-444A-B8AD-66F9C793D210}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

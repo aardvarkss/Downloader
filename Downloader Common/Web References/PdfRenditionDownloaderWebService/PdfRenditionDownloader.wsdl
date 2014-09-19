@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://localhost/DigitalPen/PdfRenditionDownloaderService" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://localhost/DigitalPen/PdfRenditionDownloaderService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/DigitalPen/PdfRenditionDownloaderService">
+      <s:element name="GetPdfRenditionManifest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="manifestNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfRenditionManifestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPdfRenditionManifestResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfRendition">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="formHistoryTransactionPdfUid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfRenditionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPdfRenditionResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetManifestDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="manifestNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetManifestDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetManifestDownloadedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetPdfRenditionManifestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPdfRenditionManifest" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfRenditionManifestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPdfRenditionManifestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfRenditionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPdfRendition" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfRenditionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPdfRenditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetManifestDownloadedSoapIn">
+    <wsdl:part name="parameters" element="tns:SetManifestDownloaded" />
+  </wsdl:message>
+  <wsdl:message name="SetManifestDownloadedSoapOut">
+    <wsdl:part name="parameters" element="tns:SetManifestDownloadedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PdfRenditionDownloaderSoap">
+    <wsdl:operation name="GetPdfRenditionManifest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method downloads a manifest of pdf renditions (images) of uploaded forms.</documentation>
+      <wsdl:input message="tns:GetPdfRenditionManifestSoapIn" />
+      <wsdl:output message="tns:GetPdfRenditionManifestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfRendition">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method returns a pdf renditon of the form image.</documentation>
+      <wsdl:input message="tns:GetPdfRenditionSoapIn" />
+      <wsdl:output message="tns:GetPdfRenditionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetManifestDownloaded">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method notifies the server that the specified manifest has been downloaded successfully. Call this method once the manifest and any files contained in it have been downloaded.</documentation>
+      <wsdl:input message="tns:SetManifestDownloadedSoapIn" />
+      <wsdl:output message="tns:SetManifestDownloadedSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PdfRenditionDownloaderSoap" type="tns:PdfRenditionDownloaderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="GetPdfRenditionManifest">
+      <soap:operation soapAction="http://localhost/DigitalPen/PdfRenditionDownloaderService/GetPdfRenditionManifest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfRendition">
+      <soap:operation soapAction="http://localhost/DigitalPen/PdfRenditionDownloaderService/GetPdfRendition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetManifestDownloaded">
+      <soap:operation soapAction="http://localhost/DigitalPen/PdfRenditionDownloaderService/SetManifestDownloaded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PdfRenditionDownloader">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <wsdl:port name="PdfRenditionDownloaderSoap" binding="tns:PdfRenditionDownloaderSoap">
+      <soap:address location="http://localhost/DigitalPen/PdfRenditionDownloaderService/PdfRenditionDownloader.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
